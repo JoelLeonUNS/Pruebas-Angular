@@ -1,0 +1,9 @@
+<app-modal-add-rows></app-modal-add-rows>
+<ng-template #extraTemplate>
+  <button nz-button nzType="text" (click)="showModal()">
+    Agregar
+  </button>
+</ng-template>
+<nz-card style="width:650px" nzTitle="Lista de Personas" [nzExtra]="extraTemplate">
+  <app-table-edit></app-table-edit>
+</nz-card>

@@ -1,0 +1,27 @@
+.form-content {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form {
+    max-width: 500px;
+    min-width: 400px;
+    padding: 24px;
+    border: 1px solid #EEE;
+    border-radius: 6px;
+  }
+
+  .login-form-margin {
+    margin-bottom: 16px;
+  }
+
+  .login-form-forgot {
+    float: right;
+  }
+
+  .login-form-button {
+    width: 100%;
+  }

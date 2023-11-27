@@ -1,0 +1,52 @@
+<nz-modal
+  [(nzVisible)]="ms.isVisible"
+  [nzTitle]="modalTitle"
+  [nzContent]="modalContent"
+  [nzFooter]="modalFooter"
+  (nzOnCancel)="handleCancel()"
+>
+  <ng-template #modalTitle>Asignación de Rol</ng-template>
+
+  <ng-template #modalContent>
+    <!--form-->
+    <form nz-form [formGroup]="validateForm" id="formModal" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzRequired nzFor="name">Nombre</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="¡Escribe un nombre!">
+          <input id="name" type="text" nz-input formControlName="name" [(ngModel)]="nameValid"/>
+        </nz-form-control>
+      </nz-form-item>
+    
+      <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzFor="rol" nzRequired>Rol</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="¡Selecciona un rol!">
+          <nz-select
+            id="rol"
+            formControlName="rol"
+            nzPlaceHolder="Seleccione un Rol."
+            [(ngModel)]="rolValid"
+          >
+            <nz-option nzValue="Interesado" nzLabel="Interesado"></nz-option>
+            <nz-option nzValue="Asesor" nzLabel="Asesor"></nz-option>
+            <nz-option nzValue="Jurado" nzLabel="Jurado"></nz-option>
+            <nz-option nzValue="Director" nzLabel="Director"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </ng-template>
+  <ng-template #modalFooter>
+    <button nz-button nzType="default" (click)="handleCancel()">
+      Cancelar
+    </button>
+    <button
+      form="formModal"
+      nz-button
+      nzType="primary"
+      (click)="handleOk()"
+      [nzLoading]="isConfirmLoading"
+    >
+      Agregar
+    </button>
+  </ng-template>
+</nz-modal>
